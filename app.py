@@ -98,7 +98,7 @@ def get_measurements(station_id):
             break
 
     return {
-        "time": [parse_time(r[i_time]) + timedelta(hours=2) for r in rows],
+        "time": [parse_time(r[i_time]) for r in rows],
         "wind": [r[i_avg] for r in rows],
         "gusts": [r[i_max] for r in rows],
         "direction": [r[i_dir] for r in rows] if i_dir is not None else None,
