@@ -1,10 +1,15 @@
 import math
 import requests
 import streamlit as st
+import zoneinfo
+
+from zoneinfo import ZoneInfo
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from streamlit_autorefresh import st_autorefresh
 from datetime import datetime, timedelta, timezone
+
+LOCAL_TZ = ZoneInfo("Europe/Copenhagen")
 
 st.set_page_config(page_title="Windbird Forecast", layout="wide")
 st_autorefresh(interval=15 * 60 * 1000, key="auto_refresh")
@@ -22,7 +27,10 @@ COMMON_WINDBIRDS = {
 
 
 def parse_time(t):
-    return datetime.fromisoformat(t.replace("Z", "+00:00"))
+    return (
+        datetime.fromisoformat(t.replace("Z", "+00:00"))
+        .astimezone(LOCAL_TZ)
+    )
 
 
 def direction_text(deg):
