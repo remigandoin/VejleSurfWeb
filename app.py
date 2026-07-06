@@ -115,7 +115,6 @@ def get_forecast(lat, lon, model_name, model_code):
         "hourly": "temperature_2m,wind_speed_10m,wind_gusts_10m,wind_direction_10m",
         "wind_speed_unit": "kmh",
         "forecast_hours": 72,
-        "timezone": "auto",
         "models": model_code,
     }
 
