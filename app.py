@@ -1,4 +1,5 @@
 # windbird_plot.py
+import streamlit as st
 import requests
 import matplotlib.pyplot as plt
 from datetime import datetime
@@ -76,6 +77,9 @@ ecmwf = get_forecast(lat, lon, "ECMWF", "ecmwf_ifs025")
 icon = get_forecast(lat, lon, "ICON", "icon_seamless")
 dmi = get_forecast(lat, lon, "DMI", "dmi_harmonie_arome_europe")
 
+st.set_page_config(layout="wide")
+st.title("Vejle Surf Forecast")
+
 fig, ax1 = plt.subplots(figsize=(12, 6))
 
 ax1.plot(obs_time, obs_wind_avg, color=WIND_COLOR, linewidth=2, label="Measured mean wind")
@@ -133,5 +137,5 @@ fig.suptitle(
     y=0.98,
 )
 
-plt.tight_layout()
-plt.show()
+plt.tight_layout(rect=[0, 0, 1, 0.86])
+st.pyplot(fig)
