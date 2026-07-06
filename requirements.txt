@@ -2,4 +2,3 @@ streamlit
 requests
 plotly
 streamlit-autorefresh
-zoneinfo
