@@ -10,7 +10,7 @@ st.set_page_config(page_title="Windbird Forecast", layout="wide")
 st_autorefresh(interval=15 * 60 * 1000, key="auto_refresh")
 
 MODELS = [
-    ("ECMWF", "ecmwf_ifs04", "#2ca02c"),
+    ("ECMWF", "ecmwf_ifs025", "#2ca02c"),
     ("ICON", "icon_seamless", "#9467bd"),
     ("DMI", "dmi_harmonie_arome_europe", "#8c564b"),
 ]
